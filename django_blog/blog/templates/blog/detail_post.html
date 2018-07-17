@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+    {% block content %}
+   <h1>{{post.title}}</h1>
+
+   Текст поста : <h4>{{post.body}}</h4>
+<li> {{post.publish}}</li>
+<li>{{post.updated}}</li>
+
+<p><form action="{% url 'update-post' post.id%}" method="get">
+        {% csrf_token %}
+        <input type="submit" value="Update post " />
+    </form>
+</p>
+    {% endblock %}
